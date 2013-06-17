@@ -11,3 +11,109 @@
  *= require_self
  *= require_tree .
  */
+
+/* Global CSS */
+.display-block {
+	display: block !important;
+}
+
+/* application layout CSS */
+.AL-signout {
+	font-size: 20px;
+    font-weight: inherit;
+    padding: 10px;
+    text-align: right;
+}
+
+/* User Signup */
+.u-avatar {
+	display: block;
+	margin-bottom: 15px;
+}
+#error_explanation {
+	border: 1px solid rgb(199, 191, 191);
+	padding: 10px;
+	color: rgb(235, 143, 143);
+	border-radius: 10px;
+	margin-bottom: 12px;
+}
+
+#error_explanation h2 {
+	font-size: 22px;
+}
+
+
+/* User(Member) feed */
+.UF-profile-image {
+	border: 1px solid red;
+    border-radius: 40px 40px 40px 40px;
+    height: 80px;
+    margin: 0;
+    width: 80px;
+}
+.UF-member {
+	padding-bottom: 10px;
+    padding-top: 10px;
+}
+.UF-heading {
+	font-family: message-box;
+    font-size: 25px !important;
+    font-weight: bold;
+    margin-left: 10px;
+    text-align: center;
+}
+
+
+
+/* Magic Suggest */
+.MS-medium #user_location_country {
+	width: 220px;
+	height: 28px;
+	margin-bottom: 10px;
+}
+.MS-medium .ms-sel-ctn {
+	width: 192px;
+}
+.MS-medium #ms-input-0 {
+	width: 175px;
+}
+.ms-helper {
+	display: none !important;
+}
+
+
+#search_text {
+	border-radius: 25px 25px 25px 25px !important;
+    width: 275px !important;
+}
+#search_text #ms-input-0 {
+	border-radius: 20px 20px 20px 20px !important;
+}
+.MS-search .search {
+	left: -110px;
+    position: relative;
+    top: -30px;
+}
+
+.MS-search .search-wraper {
+	height: 34px;
+    padding-top: 8px;
+}
+
+.UB-info {
+	width: 335px;
+	position: relative;
+	top: -64px;
+	left: 85px;
+	font-weight: bold;
+}
+.UB-name {
+	color: rgb(145, 145, 118); 
+	position: relative;
+	font-size: 16px;
+}
+.UB-email {
+	color: rgba(66, 20, 20, 0.88);
+    display: inline;
+    position: relative;
+}

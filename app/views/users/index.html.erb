@@ -1,0 +1,17 @@
+<% unless @users.blank? %>
+<h1 class="UF-heading span10">Listing members</h1>
+<div class="span10">
+	<% @users.each do |user| %>
+		<div class="row UF-member">
+		<%= link_to user_path(user) do %>
+			<%= image_tag(user.avatar.url(:thumb), :class => "UF-profile-image span") %>
+			<div class="span6">
+				<span class="UB-name"><%= user.name %></span> <br/>
+				<span class="UB-email"><%= user.email %></span>
+			</div>
+		<% end %>
+		</div>
+		<%#= user.inspect %>
+	<% end %>
+</div>
+<% end %>

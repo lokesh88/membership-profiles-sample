@@ -1,4 +1,17 @@
 MembershipProfilesSample::Application.routes.draw do
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
+
+	resources :users, :only => [:index] do
+    collection do
+      get 'search'
+    end
+  end
+  
+  match 'users/:id/show' => 'users#show', :as => :user, :via => :get
+  match 'users/:id/edit' => 'users#edit', :as => :edit_user, :via => :get
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +61,7 @@ MembershipProfilesSample::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 

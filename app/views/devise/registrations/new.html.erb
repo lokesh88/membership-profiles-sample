@@ -1,0 +1,46 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
+	<fieldset class="MS-medium">
+		
+		<%= f.label :name %>
+		<%= f.text_field :name, :autofocus => true %>
+
+		<%= f.label :email %>
+		<%= f.email_field :email %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
+
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar, :class => "u-avatar" %>
+
+		<%= f.label :location_country %>
+		<div id="user_location_country"></div>
+		<%#= f.text_field :location_country %>
+
+		<%= f.label :location_city %>
+		<%= f.text_field :location_city %>
+
+		<%= f.submit "Sign up", :class => "btn display-block" %>
+	</fieldset>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<script>
+ $(function() {
+    $("#user_location_country" ).magicSuggest({
+        id: 'user_location_country',
+        name: 'user[location_country]',
+		allowFreeEntries: false,
+        data: "<%=COUNTRIES%>",
+		maxDropHeightinteger: 120,
+		maxSelection: 1
+    });
+  });
+</script>
