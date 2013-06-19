@@ -5,7 +5,7 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 gem 'devise'
 gem 'therubyracer', :require => 'v8'
-gem 'mysql2'
+
 gem "paperclip", "~> 3.0"
 
 # To use ActiveModel has_secure_password
@@ -40,5 +40,9 @@ gem "paperclip", "~> 3.0"
 
 group :development do
 # To use debugger
- gem 'debugger'
+	gem 'debugger'
+	gem 'mysql2'
+end
+group :production do
+	gem 'pg'
 end
