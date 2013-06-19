@@ -36,12 +36,4 @@ MembershipProfilesSample::Application.configure do
   config.assets.debug = true
 
 	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  
-  ActionMailer::Base.smtp_settings = {
-    :address => "gmail.com",
-    :port => 25,
-    :authentication => :plain,
-    :user_name => "mm.lokesh.tiwari@gmail.com",
-    :password => "master$tiwari"
-    }
 end
