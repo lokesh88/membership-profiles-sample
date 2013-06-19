@@ -5,9 +5,19 @@
 		<div class="row UF-member">
 		<%= link_to user_path(user) do %>
 			<%= image_tag(user.avatar.url(:thumb), :class => "UF-profile-image span") %>
-			<div class="span6">
-				<span class="UB-name"><%= user.name %></span> <br/>
+			<div class="span3">
+				<span class="UB-name"><%= user.name.capitalize %></span> <br/>
 				<span class="UB-email"><%= user.email %></span>
+			</div>
+			<div class="span5">
+				<% if user.interests.present? %>
+					<h5><%=user.name%> is interested in </h5>
+					<% user.interests.each_with_index do |ui, i| %>
+						<span class="<%= i%2 == 1 ? 'odd' : 'even' %>"><%= " #{ui.name}" %></span>
+					<% end %>
+				<% else %>
+					<h5><%=user.name.capitalize%> is not having any interest</h5>
+				<% end %>
 			</div>
 		<% end %>
 		</div>

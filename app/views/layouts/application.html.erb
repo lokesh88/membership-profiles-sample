@@ -16,9 +16,11 @@
 			  <%= submit_tag("Search", :class => "btn search") %>
 			<% end %>
 		</div>
-		<div class="span4">
-			<%= link_to "Home", root_path %> | 
-			<%= link_to "sign_out", destroy_user_session_path, :method => :delete %>
+		<div class="span5 AL-navbar-links">
+			<%= link_to "home", root_path %> | 
+			<%= link_to "my-profile", user_path(current_user) %> | 
+			<%= link_to "my-interest", new_user_interest_path(current_user.id) %> | 
+			<%= link_to "sign-out", destroy_user_session_path, :method => :delete %>
 		</div>
 	</div>
 	<% if flash[:alert] %>

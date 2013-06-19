@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :url => update_user_path(@user)) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,6 +11,7 @@
     </div>
   <% end %>
   <fieldset class="MS-medium">
+		<legend> <%= legend rescue '' %> </legend>
 		<div class="row UF-member">
     <%= image_tag(@user.avatar.url(:thumb), :class => "UF-profile-image span") %>
     </div>
@@ -25,6 +26,24 @@
 
 		<%= f.label :location_city %>
 		<%= f.text_field :location_city %>
-    
+		<% if current_user.id == @user.id and action_name.include? "edit" %>
+			<%= f.file_field :avatar, :class => "u-avatar" %>
+    	<%= f.submit "Save", :class => "btn display-block" %>
+		<% end %>
 	</fieldset>
 <% end %>
+
+
+<script>
+ $(function() {
+    $("#user_location_country" ).magicSuggest({
+        id: 'user_location_country',
+        name: 'user[location_country]',
+			  allowFreeEntries: false,
+        data: "<%=COUNTRIES%>",
+        value: '["<%=@user.location_country%>"]',
+				maxDropHeightinteger: 120,
+				maxSelection: 1
+    });
+  });
+</script>

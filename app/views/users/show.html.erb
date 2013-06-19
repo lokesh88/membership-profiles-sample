@@ -1,18 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= render :partial => "form" %>
-<%#= link_to 'Edit', edit_user_path(@user) %>
+<%= render :partial => "form", :locals => { :legend => "User profile" } %>
+<%= link_to 'Edit', edit_user_path(@user) if @user.id == current_user.id%>
 <%= link_to 'Back', users_path %>
 
-<script>
- $(function() {
-    $("#user_location_country" ).magicSuggest({
-        id: 'user_location_country',
-        name: 'user[location_country]',
-			  allowFreeEntries: false,
-        data: "<%=COUNTRIES%>",
-        value: '["<%=@user.location_country%>"]',
-				maxDropHeightinteger: 120,
-				maxSelection: 1
-    });
-  });
-</script>

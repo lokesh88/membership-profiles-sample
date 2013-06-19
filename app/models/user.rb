@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
 		:content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 	validates :name, :location_country, :presence => true
 
-	has_many :interests
+	has_many :user_interests
+	has_many :interests, :through => :user_interests
 	
   def self.search_result q
 	return [] if q.blank?

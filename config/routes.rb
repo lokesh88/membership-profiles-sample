@@ -1,5 +1,8 @@
 MembershipProfilesSample::Application.routes.draw do
 
+  match 'user_interest/:uid/new' => 'user_interests#new', :as => :new_user_interest, :via => :get
+  match 'user_interest/:uid/save' => 'user_interests#save', :as => :save_user_interest, :via => :post
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
 
@@ -11,6 +14,7 @@ MembershipProfilesSample::Application.routes.draw do
   
   match 'users/:id/show' => 'users#show', :as => :user, :via => :get
   match 'users/:id/edit' => 'users#edit', :as => :edit_user, :via => :get
+	match 'users/:id/update' => 'users#update', :as => :update_user, :via => :put
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

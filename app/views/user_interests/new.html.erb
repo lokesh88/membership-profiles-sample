@@ -1,0 +1,36 @@
+<%= form_tag(save_user_interest_path(@user.id), :method => "post") do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset class="">
+		<legend>Choose your Interests</legend>
+
+		<label for"user_interest">User interest</label>
+		<div id="user_interest"></div>
+		
+		<% if current_user.id == @user.id %>
+    	<%= submit_tag "Save", :class => "btn display-block" %>
+		<% end %>
+	</fieldset>
+<% end %>
+
+<script>
+ $(function() {
+    $("#user_interest" ).magicSuggest({
+        id: 'user_interest',
+        name: 'user_interest',
+        data: "<%=@interests%>",
+				maxDropHeightinteger: 120,
+        value: '["<%=@user.interests.map(&:name).join('","').html_safe%>"]',
+				maxSelection: null
+    });
+  });
+</script>

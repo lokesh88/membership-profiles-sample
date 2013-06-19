@@ -16,10 +16,23 @@
 .display-block {
 	display: block !important;
 }
-
+.odd {
+	color: rgb(184, 87, 87);
+	margin-right: 12px;
+}
+.even {
+	color: rgb(92, 13, 13);
+	margin-right: 12px;
+}
 /* application layout CSS */
+.AL-navbar-links {
+		padding-top: 15px;
+    position: relative;
+    right: -65px;
+}
+
 .AL-signout {
-	font-size: 20px;
+		font-size: 20px;
     font-weight: inherit;
     padding: 10px;
     text-align: right;
@@ -88,6 +101,11 @@
 }
 #search_text #ms-input-0 {
 	border-radius: 20px 20px 20px 20px !important;
+}
+
+#user_interest {
+	margin-bottom: 10px;
+    margin-top: 10px;
 }
 .MS-search .search {
 	left: -110px;
